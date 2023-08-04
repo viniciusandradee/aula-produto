@@ -20,7 +20,6 @@ public class ProdutoRepository {
         Produto ssd = new Produto( 4L, "SSD KINGSTON", "Kingston SSD 4TB", BigDecimal.valueOf( 5999.99 ) );
         Produto celular2 = new Produto( 5L, "Iphone", "11 PRO MAX", BigDecimal.valueOf( 4999.99 ) );
         produtos = new ArrayList<>();
-
         produtos.addAll( Arrays.asList( celular, tablet, pendrive, ssd, celular2 ) );
     }
 
@@ -46,6 +45,12 @@ public class ProdutoRepository {
             }
         }
         return retorno;
+    }
+
+    public static Produto persist(Produto p) {
+        p.setId(produtos.size()+1L);
+        produtos.add(p);
+        return p;
     }
 
 }
