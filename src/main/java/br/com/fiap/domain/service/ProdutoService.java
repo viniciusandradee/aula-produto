@@ -4,8 +4,7 @@ import br.com.fiap.domain.entity.Produto;
 import br.com.fiap.domain.repository.ProdutoRepository;
 
 import java.util.Objects;
-
-public class     ProdutoService {
+public class ProdutoService {
 
     public static Produto persist(Produto p) {
 
@@ -21,5 +20,4 @@ public class     ProdutoService {
         return produtoRepository.persist(p);
 
     }
-
 }

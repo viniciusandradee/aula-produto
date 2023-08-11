@@ -13,5 +13,4 @@ public class ProdutoView {
         Double valor = Double.valueOf(JOptionPane.showInputDialog("Valor"));
         return new Produto(nome, descricao, BigDecimal.valueOf(valor));
     }
-
 }
