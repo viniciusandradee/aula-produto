@@ -1,10 +1,6 @@
 package br.com.fiap;
 
-import br.com.fiap.domain.entity.Deposito;
-import br.com.fiap.domain.service.DepositoService;
-import br.com.fiap.domain.view.DepositoView;
-
-import java.util.Objects;
+import br.com.fiap.domain.service.ProdutoEstocadoService;
 
 public class Main {
 
@@ -33,16 +29,24 @@ public class Main {
 //            System.out.printf("Não foi possível salvar o produto");
 //        }
 
-        DepositoView view = new DepositoView();
-        Deposito deposito = view.form();
+//        DepositoView view = new DepositoView();
+//        Deposito deposito = view.form();
+//
+//        var d = DepositoService.persist( deposito );
+//
+//        if (Objects.isNull( d )) {
+//            System.out.println( "Não foi possível salvar o Depósito" );
+//        } else {
+//            System.out.println( d );
+//        }
 
-        var d = DepositoService.persist( deposito );
 
-        if (Objects.isNull( d )) {
-            System.out.println( "Não foi possível salvar o Depósito" );
-        } else {
-            System.out.println( d );
-        }
+        //Testando o método que gera o dígito
+//        var i = 0;
+//        do {
+//            var digito = ProdutoEstocadoService.gerarDigito( i );
+//            i++;
+//        } while (i < 100);
 
 
     }
