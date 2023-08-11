@@ -5,7 +5,7 @@ import br.com.fiap.domain.repository.ProdutoRepository;
 
 import java.util.Objects;
 
-public class ProdutoService {
+public class     ProdutoService {
 
     public static Produto persist(Produto p) {
         if (Objects.isNull(p.getNome())) {
