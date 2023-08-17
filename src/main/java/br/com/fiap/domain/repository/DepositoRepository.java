@@ -11,6 +11,7 @@ public class DepositoRepository {
     private static List<Deposito> depositos;
 
     static {
+
         depositos = new ArrayList<>();
 
         Deposito xangai = new Deposito();
@@ -21,7 +22,6 @@ public class DepositoRepository {
         Deposito osasco = new Deposito( 4L, "Osasco" );
 
         depositos.addAll( Arrays.asList( xangai, barcelona, comptom, osasco ) );
-
     }
 
     public static List<Deposito> findAll() {
@@ -52,6 +52,5 @@ public class DepositoRepository {
         depositos.add( d );
         return d;
     }
-
 
 }

@@ -11,7 +11,6 @@ public class Main {
 
         ProdutoEstocadoView view = new ProdutoEstocadoView();
         List<ProdutoEstocado> produtoEstocados = view.formEstocar();
-
         produtoEstocados.forEach( System.out::println );
 
     }
