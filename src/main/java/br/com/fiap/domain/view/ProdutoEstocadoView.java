@@ -5,6 +5,7 @@ import br.com.fiap.domain.entity.Produto;
 import br.com.fiap.domain.entity.ProdutoEstocado;
 import br.com.fiap.domain.repository.DepositoRepository;
 import br.com.fiap.domain.repository.ProdutoRepository;
+import br.com.fiap.domain.service.ProdutoEstocadoService;
 
 import javax.swing.*;
 import java.util.ArrayList;
@@ -17,9 +18,12 @@ public class ProdutoEstocadoView {
     List<ProdutoEstocado> produtosEstocados = new ArrayList<>();
 
     public List<ProdutoEstocado> formEstocar() {
+
         produtos = ProdutoRepository.findAll();
         depositos = DepositoRepository.findAll();
+
         if (produtos.size() > 0 && depositos.size() > 0) {
+
             Produto produto = (Produto) JOptionPane.showInputDialog( null, "Escolha o produto", "Seleção de Produtos", JOptionPane.QUESTION_MESSAGE, null, produtos.toArray(), produtos.get( 0 ) );
             if (Objects.isNull( produto )) return produtosEstocados;
 
@@ -27,9 +31,20 @@ public class ProdutoEstocadoView {
             if (Objects.isNull( deposito )) return produtosEstocados;
 
             Integer quantidade = 0;
+
             do {
                 quantidade = Integer.valueOf( JOptionPane.showInputDialog( "Informe a quantidade de Itens do produto " + produto.getNome() + " que deseja encaminhar para o estoque" ) );
             } while (quantidade <= 0);
+
+
+            for (int i = 0; i < quantidade; i++) {
+                ProdutoEstocado pe = new ProdutoEstocado();
+                pe.setProduto( produto ).setDeposito( deposito );
+                produtosEstocados.add( ProdutoEstocadoService.entrada( pe ) );
+            }
+
+            if (produtosEstocados.size() > 0)
+                JOptionPane.showMessageDialog( null, "Sucesso!\n" + produtosEstocados.size() + " intens de " + produto.getNome() + " foram estocados com sucesso em " + deposito.getNome() + "!" );
 
         } else {
             JOptionPane.showMessageDialog( null, "Não é possível estocar. Verifique se existem produtos e depósitos disponíveis " );
