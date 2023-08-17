@@ -10,12 +10,15 @@ import java.util.Random;
 public class ProdutoEstocadoService {
 
     public static ProdutoEstocado entrada(ProdutoEstocado pe) {
+
+        ProdutoEstocadoRepository repo = new ProdutoEstocadoRepository();
+
         if (pe.getProduto().equals( null )) return null;
         if (pe.getDeposito().equals( null )) return null;
         pe.setEntrada( LocalDateTime.now() );
         pe.setSaida( null );
         pe.setNumeroDeSerie( gerarNumeroDeSerie( pe ) );
-        return ProdutoEstocadoRepository.persist( pe );
+        return repo.persist( pe );
     }
 
     private static String gerarNumeroDeSerie(ProdutoEstocado pe) {

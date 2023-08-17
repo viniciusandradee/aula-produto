@@ -19,8 +19,13 @@ public class ProdutoEstocadoView {
 
     public List<ProdutoEstocado> formEstocar() {
 
-        produtos = ProdutoRepository.findAll();
-        depositos = DepositoRepository.findAll();
+        ProdutoRepository produtoRepository = new ProdutoRepository();
+        DepositoRepository depositoRepository = new DepositoRepository();
+
+
+        produtos = produtoRepository.findAll();
+
+        depositos = depositoRepository.findAll();
 
         if (produtos.size() > 0 && depositos.size() > 0) {
 
